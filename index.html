@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <title>10-707 Spring 2023 : Advanced Deep Learning</title>
+
+  <!-- bootstrap -->
+  <!-- <link rel="stylesheet" href="./style/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+    integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <link rel="stylesheet" href="./style/bootstrap-theme.min.css">
+  <link href="./style/10707.css" rel="stylesheet" type="text/css">
+
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark">
+    <a href="./index.html">
+      <img src="./static/img/ml-logo.gif" style="height:40px; float: left; margin-left: 20px; margin-right: 20px;"></a>
+    <a class="navbar-brand" href="./index.html">
+      <font color="black">CMU 10-707</font>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+      aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a class="nav-link" href="./index.html#announcement">
+            <font color="black">Home</font>
+          </a></li>
+        <li class="nav-item"><a class="nav-link" href="./syllabus.html">
+            <font color="black">Syllabus</font>
+          </a></li>
+        <!-- 	<li class="nav-item"><a class="nav-link" href="./syllabus.html"><font color="black">Schedule/Calendar</font></a></li> -->
+        <li class="nav-item"><a class="nav-link" href="./calendar.html">
+            <font color="black">Schedule</font>
+          </a></li>
+        <li class="nav-item"><a class="nav-link" href="./index.html#info">
+            <font color="black">Course Outline</font>
+          </a></li>
+        <li class="nav-item"><a class="nav-link" href="./index.html#logistics">
+            <font color="black">Logistics</font>
+          </a></li>
+        <li class="nav-item"><a class="nav-link" href="./index.html#policies">
+            <font color="black">Policies</font>
+          </a></li>
+        <li class="nav-item"><a class="nav-link" href="https://piazza.com/class/lcow370iclm3aj" target=”_blank”>
+            <font color="black">Piazza</font>
+          </a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-5" style="color:#ffffff !important">10-707 - Advanced Deep Learning, Spring 2023</h1>
+      <h2 class="display-7" style="color:#e8d5d5 !important">Instructor:</h2>
+      <div class="row">
+        <div class="instructor">
+          <a href="https://www.cs.cmu.edu/~rsalakhu/" target=”_blank”>
+            <img class="headshot-instructor" src="./static/img/photo-ruslan2.jpg" style="text-align:center;">
+            <div style="text-align:left;padding-left: 10px; color:#e8c8c8">Ruslan Salakhutdinov</div>
+          </a>
+          <p style="padding:10px; color:#e8c8c8 !important">Email: rsalakhu [at] andrew [dot] cmu [dot] edu </p>
+        </div>
+      </div>
+      <br />
+    </div>
+
+  </div>
+
+
+  <section id="info">
+    <div class="container">
+      <h2>Course Outline</h2>
+      <p></p>
+      <p>Building intelligent machines that are capable of extracting meaningful representations from high-dimensional
+        data lies at the core of solving many AI related tasks. In the past few years, researchers across many different
+        communities, from applied statistics to engineering, computer science and neuroscience, have developed deep
+        (hierarchical) models -- models that are composed of several layers of nonlinear processing. An important
+        property of these models is that they can learn useful representations by re-using and combining intermediate
+        concepts, allowing these models to be successfully applied in a wide variety of domains, including visual object
+        recognition, information retrieval, natural language processing, and speech perception. This is an advanced
+        graduate course, designed for Masters and Ph.D. level students, and will assume a reasonable degree of
+        mathematical maturity. The goal of this course is to introduce students to the recent and exciting developments
+        of various deep learning methods.</p>
+
+      <p>This course covers some of the theory and methodology of deep learning. The preliminary set of topics to be
+        covered include:</p>
+      <ul>
+        <li><b>Introduction</b>
+          <ul>
+            <li>Background: Linear Algebra, Distributions, Rules of probability.</li>
+            <li>Regression, Classification.</li>
+            <li>Feedforward neural nets, backpropagation algorithm. Introduction to popular optimization and
+              regularization techniques.</li>
+            <li>Convolutional models with applications to computer vision.</li>
+          </ul>
+        </li>
+        <li><b>Deep Learning Essentials</b>
+          <ul>
+            <li>Graphical Models: Directed and Undirected.</li>
+            <li>Linear Factor Models, PPCA, FA, ICA, Sparse Coding and its extensions.</li>
+            <li>Autoencoders and its extensions. Energy-based models, RBMs.</li>
+            <li>Monte Carlo Methods.</li>
+            <li>Learning and Inference: Contrastive Divergence (CD), Stochastic Maximum Likelihood Estimation, Score
+              Matching, Ratio Matching, Pseud-likelihood Estimation, Noise-Contrastive Estimation.</li>
+            <li>Annealed Importance Sampling, Partition Function Estimation.</li>
+            <li>Deep Generative Models: Deep Belief Networks, Deep Boltzmann Machines, Helmholtz Machines, Variational
+              Autoencoders, Importance-weighted Autoencoders, Wake-Sleep Algorithm.</li>
+            <li>Generative Adversarial Networks (GANs), Generative Moment Matching Nets, Neural Autoregressive Density
+              Estimator (NADE).</li>
+          </ul>
+        </li>
+        <li><b>Additional Topics</b>
+          <ul>
+            <li>More on Regularization and Optimization in Deep Nets.</li>
+            <li>Sequence Modeling: Recurrent Neural Networks. Sequence-to-Sequence Architectures, Attention models.</li>
+            <li>Deep Reinforcement Learning.</li>
+          </ul>
+        </li>
+      </ul>
+      <br>
+
+    </div>
+  </section>
+
+
+  <section id="logistics">
+    <div class="container">
+
+      <h2>Logistics</h2>
+      <p></p>
+      <dt>Time</dt>
+      <dd>Monday, Wednesday 11:00AM - 12:20PM, Tepper 1403. The lectures will also be recorded and are available on <a
+          href="https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%22bf3de0e8-1c6f-43b3-9a24-af86011cd624%22">Panopto</a>.
+      </dd>
+      <p></p>
+      <dt>Contact Information</dt>
+      <dd>If you have a question, to get a response from the teaching staff quickly we strongly encourage you to post it
+        to the class <a href="https://piazza.com/class/lcow370iclm3aj">Piazza forum</a>. For private matters, please
+        make a private note visible only to the course instructors. For longer discussions, we strongly encourage you to
+        come to office hours.
+      </dd>
+
+      <!-- <dt>Student Engagement</dt>
+    <dd>
+      Due to room capacity restrictions, all students will be online one day a week and in-person one day a week.
+      <ul>
+        <li>In-person section:</li>
+        <ul>
+          <li>Andrew IDs beginning with A-L on Mondays</li>
+          <li>Andrew IDs beginning with M-Z on Wednesdays</li>
+        </ul>
+        <li>For your remote day, follow this <a href="https://cmu.zoom.us/j/91551269289?pwd=VEZsVG5Tb3cxRE5naE1Fak82ZEYyZz09">Zoom link</a>.</li>
+        <li>Lectures and recitations will be recorded and made available to students. There may be a delay in posting these recordings while they are processed.</li>
+      </ul>
+    </dd> -->
+      <p></p>
+      <dt>Education Associate</dt>
+      <div class="row">
+        <div class="instructor">
+          <img class="headshot" src="static/img/photo-brynn.jpg" style="text-align:center;">
+          <div style="text-align:center;">Brynn Edmunds</div>
+          </a>
+        </div>
+      </div>
+      <p></p>
+      <dt>Teaching Assistants</dt>
+      <div class="row">
+        <div class="instructor">
+          <!-- <a href="(website-here)"> -->
+          <a href="https://athiyadeviyani.github.io/" target=”_blank”>
+          <img class="headshot" src="./static/img/photo-athiya.png" style="text-align:center;">
+          <div style="text-align:center;font-size: 90%;">Athiya Deviyani</div>
+          </a>
+          <!-- </a> -->
+        </div>
+        <div class="instructor">
+          <!-- <a href="(website-here)"> -->
+          <a href="http://www.liangalbert.com/" target=”_blank”>
+          <img class="headshot" src="./static/img/photo-albert.jpg" style="text-align:center;">
+          <div style="text-align:center;font-size: 90%;">Albert Liang</div>
+          </a>
+          <!-- </a> -->
+        </div>
+        <div class="instructor">
+          <!-- <a href="(website-here)"> -->
+          <a href="https://chriski777.github.io/" target=”_blank”>
+          <img class="headshot" src="./static/img/photo-chris.jpg" style="text-align:center;">
+          <div style="text-align:center;font-size: 90%;">Chris Ki</div>
+          </a>
+          <!-- </a> -->
+        </div>
+        <div class="instructor">
+          <!-- <a href="(website-here)"> -->
+          <a href="https://www.linkedin.com/in/udaikaran-singh-a38675112" target=”_blank”>
+          <img class="headshot" src="./static/img/photo-udai.jpeg" style="text-align:center;">
+          <div style="text-align:center;font-size: 90%;">Udaikaran Singh</div>
+          </a>
+          <!-- </a> -->
+        </div>
+        <div class="instructor">
+          <a href="https://youngseogchung.github.io/" target=”_blank”>
+          <img class="headshot" src="./static/img/photo-youngseog.jpg" style="text-align:center;">
+          <div style="text-align:center;font-size: 90%;">Youngseog Chung</div>
+          </a>
+        </div>
+        <div class="instructor">
+          <a href=" https://jociet101.github.io/" target=”_blank”>
+          <img class="headshot" src="./static/img/photo-jocelyn.jpeg" style="text-align:center;">
+          <div style="text-align:center;font-size: 90%;">Jocelyn Tseng</div>
+          </a>
+        </div>
+      </div>
+
+      <p></p>
+      <dt>Prerequisites </dt>
+      <dd>
+        <p>Students are expected to have a strong background in linear algebra, machine learning, statistics, and
+          probability theory.</p>
+        <ul>
+          <li>Introduction to Machine Learning (10401 or 10601 or 10701 or 10715) any of these courses must be satisfied
+            to take the course.</li>
+          <li>Have a basic understanding of coding (Python preferred), as this will be a coding-intensive course.</li>
+        </ul>
+      </dd>
+      <p></p>
+      <dt>Course Materials</dt>
+      <dd>Homework assignments will be announced on <a href="https://piazza.com/class/lcow370iclm3aj">Piazza</a> when
+        released and the relevant homework source files will be found in the <a
+          href="https://piazza.com/cmu/spring2023/10707/resources">resources</a> tab. Slides will be posted periodically
+        in the <a href="syllabus.html">syllabus</a> page on the course website. The instructor will try to upload slides
+        before class, and additional readings will be posted whenever possible. </dd>
+    </div>
+  </section>
+  <section id="projects">
+    <div class="container">
+
+      <br />
+      <h3> Projects </h3>
+      <p></p>
+      <dt>Timeline</dt>
+      March (TBA): 3-page proposal on the class project <br>
+      April (TBA): Final projects are due, 8-pages
+      <p></p>
+      <dt> Requirements </dt>
+      For projects, you may work in teams of 2-3 people.
+      Project info sheet: <a href=static/S23_10707_Project_Report_Requirements.pdf>[pdf]</a>.
+      <br>
+      Slightly modified NeurIPS style file and example paper for LaTeX
+      <a href="static/nips_2016.sty">[sty]</a>
+      <a href="static/nips_2016.tex">[tex]</a> and formatting guide
+      <a href="static/nips_2016.pdf">[pdf]</a> <br>
+      Please note that 8 pages is a hard upper limit on length. Grading on project will be reduced if report is over 8
+      pages. No exceptions!
+      <br>
+      Some project abstracts from previous offerings as references: <a href=static/sample_abstracts.pdf>abstract</a>.
+      <br>
+      <br>
+      <h4>Assignments and Grading</h4>
+      <dd>There will be <b>three</b> assignments, a <b>final project</b>, and a <b>mid-term exam</b> for the course
+        whose details are mentioned above.
+        <br> Please write all assignments in LaTeX using the NeurIPS style file.
+        Slightly modified NeurIPS style file and example LaTeX
+        <a href="static/nips_2016.sty">[sty]</a>
+        <a href="static/nips_2016.tex">[tex]</a>
+        <p></p>
+        Course grades:
+        <ul>
+          <li><b>60%</b> on 3 assignments (20%+20%+20%)
+          <li><b>30%</b> on Final Project (5% mid-way report, 25% final report)
+          <li><b>10%</b> on mid-term exam
+      </dd>
+      </ul>
+      <dt> Homework Assignments </dt>
+
+      The assignments are to be done by each student individually. You may discuss the general idea of the questions
+      with anyone you like, but your discussion may not include the specific answers to any of the problems.
+      <p></p>
+      <dt>Submitting Assignments</dt>
+      <dd>Assignments will be submitted through <a href="https://gradescope.com/">Gradescope</a>.
+        <br> <b>Writeups should be typeset in LaTeX</b> and should be submitted in pdf
+        form. <br> All code should be submitted with a README file with instructions on how to execute your code. <br>
+        You will receive an invite to Gradescope for 10-707 Advanced Deep Learning Spring 2023. Login via the
+        invite, and submit the assignments on time. If you have not received an invite, please post a private message on
+        <a href="https://piazza.com/class/lcow370iclm3aj">Piazza</a>.
+      </dd>
+
+      <br>
+
+      <h3>Marking</h3>
+      As a general rule, small matters of marking on assignments and exams (apparent errors, questions about evaluation
+      criteria, etc.) should be taken
+      first to the marker (via a Gradescope regrade request). More significant issues, or unresolved matters
+      on assignments and exams, are appropriate to take to the education associatie and/or the instructor.
+    </div>
+  </section>
+
+  <br>
+
+  <section id="policies">
+    <div class="container">
+      <h4 id="6-general-policies">General Policies</h4>
+      <p></p>
+      <dt> Grace Day/Late Homework Policy </dt>
+      <b>Homeworks:</b> Each student will have a total of <b>5 grace days</b> that a student may choose to apply to the
+      homework assignments.
+      No more than 3 grace days can be used on any single assignment.
+      These grace days will be applied greedily and automatically; you do not have to email us to apply to use these.
+      <b>NOTE: Homeworks submitted late when the student has no grace days remaining or 3 days past the deadline will be
+        given a score of 0.</b>
+      <br>
+      <p><b>Projects:</b> Each team will have a total of <b>3 grace days</b> on the project (can be split between
+        project
+        proposals and final reports).
+        Unused grace days from homeworks CANNOT be applied to the project or vice versa.
+        These grace days will be applied greedily and automatically; you do not have to email us to apply to use these.
+        <b>NOTE: Projects submitted more than 3 days past the deadline will be given a score of 0.</b>
+      </p>
+
+      <dt id="extensions">Extensions</dt>
+      <p>In general, we do not grant extensions on assignments. There are several exceptions:</p>
+      <ul>
+        <li><strong>Medical Emergencies:</strong> If you are sick and unable to complete an
+          assignment or attend class, please go to University Health
+          Services. For minor illnesses, we expect grace days or our late
+          penalties to provide sufficient accommodation. For medical
+          emergencies (e.g. prolonged hospitalization), students may request
+          an extension afterwards and should include a note from University
+          Health Services.</li>
+        Certificate</b> or a <b>written</b> (not email) request submitted at least one week before the due date and
+        approved by the instructor. Please plan ahead.
+        <li><strong>Family/Personal Emergencies:</strong> If you have a family emergency
+          (e.g. death in the family) or a personal emergency (e.g. mental
+          health crisis), please contact your academic adviser or Counseling
+          and Psychological Services (CaPS). In addition to offering support,
+          your academic adviser may reach out to the instructors for all your courses on your
+          behalf to request an extension. (Note that it should be the adviser and not
+          CaPS who requests for an extension.)</li>
+        <li><strong>University-Approved Absences:</strong> If you are attending an
+          out-of-town university approved event (e.g. multi-day
+          athletic/academic trip organized by the university), you may request
+          an extension for the duration of the trip. You must provide
+          confirmation of your attendance, usually from a faculty or staff
+          organizer of the event.</li>
+      </ul>
+
+      <p>For any of the above situations, you may request an extension by emailing the Educational Associate Brynn
+        Edmunds at bedmunds@andrew.cmu.edu
+        – do not email the instructor or TAs. The email should be sent as soon as you are aware of the conflict and at
+        least 5 days prior to the deadline.
+        In the case of an emergency, no notice is needed.</p>
+
+      <dt id="audit-policy">Audit Policy</dt>
+
+      <p>Auditing of the course (i.e. taking the course for an “Audit”
+        grade) is not permitted this semester.</p>
+
+      <dt id="passfail-policy">Pass/Fail Policy</dt>
+
+      <p>We allow you take the course as Pass/Fail. Instructor permission is
+        not required. What grade is the cutoff for Pass will depend on your
+        program. Be sure to check with your program / department as to whether
+        you can count a Pass/Fail course towards your degree requirements.</p>
+
+      <dt id="accommodations-for-students-with-disabilities">Accommodations for Students with Disabilities:</dt>
+
+      <p>If you have a disability and have an accommodation letter from the Disability Resources office, I encourage
+        you to discuss your accommodations and needs with Brynn Edmunds (bedmunds@andrew.cmu.edu) as early in the
+        semester
+        as possible. We will work with you to ensure that accommodations are provided as appropriate. If you suspect
+        that
+        you may have a disability and would benefit from accommodations but are not yet registered with the Office of
+        Disability Resources, I encourage you to contact them at
+        <a href="mailto:access@andrew.cmu.edu">access@andrew.cmu.edu</a>.
+      </p>
+
+      <br>
+
+      <h4 id="7-academic-integrity-policies">Academic Integrity Policies</h4>
+      <p></p>
+      <p><strong>Please this carefully!</strong></p>
+
+      <p>(Adapted from Roni Rosenfeld’s <a href="http://www.cs.cmu.edu/~roni/10601/">10-601 Spring 2016</a> Course
+        Policies.)</p>
+
+      <dt id="collaboration-among-students">Collaboration among Students</dt>
+
+      <ul>
+        <li>The purpose of student collaboration is to facilitate learning, not to circumvent it. Studying the material
+          in groups is strongly encouraged. It is also allowed to seek help from other students in understanding the
+          material needed to solve a particular homework problem, provided no written notes (including code) are shared,
+          or are taken at that time, and provided learning is facilitated, not circumvented. The actual solution must be
+          done by each student alone.</li>
+        <li>The presence or absence of any form of help or collaboration, whether given or received, must be explicitly
+          stated and disclosed in full by all involved. Specifically, each assignment solution must include answering
+          the following questions:
+          <ol>
+            <li>Did you receive any help whatsoever from anyone in solving this assignment? Yes / No.
+              <ul>
+                <li>If you answered ‘yes’, give full details:
+                  <strong>__</strong><strong>__</strong><strong>__</strong><strong>__</strong><strong>__</strong><strong>__</strong>
+                </li>
+                <li>(e.g. “Jane Doe explained to me what is asked in Question 3.4”)</li>
+              </ul>
+            </li>
+            <li>Did you give any help whatsoever to anyone in solving this assignment? Yes / No.
+              <ul>
+                <li>If you answered ‘yes’, give full details:
+                  <strong>__</strong><strong>__</strong><strong>__</strong><strong>__</strong><strong>__</strong><strong>__</strong>_
+                </li>
+                <li>(e.g. “I pointed Joe Smith to section 2.3 since he didn’t know how to proceed with Question 2”)</li>
+              </ul>
+            </li>
+            <li>Did you find or come across code or online material that implements or solves any part of this
+              assignment ? Yes / No. (See below policy on “found code”)
+              <ul>
+                <li>If you answered ‘yes’, give full details:
+                  <strong>__</strong><strong>__</strong><strong>__</strong><strong>__</strong><strong>__</strong><strong>__</strong>_
+                </li>
+                <li>(book &amp; page, URL &amp; location within the page, etc.).</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>If you gave help after turning in your own assignment and/or after answering the questions above, you must
+          update your answers before the assignment’s deadline, if necessary by emailing the course staff.</li>
+        <li>Collaboration without full disclosure will be handled severely, in compliance with <a
+            href="https://www.cmu.edu/policies/student-and-student-life/academic-integrity.html">CMU’s Policy on
+            Academic Integrity</a>.</li>
+      </ul>
+
+      <dt id="previously-used-assignments">Previously Used Assignments</dt>
+
+      <p>Some of the homework assignments used in this class may have been used in prior versions of this class, or in
+        classes at other institutions, or elsewhere. Solutions to them may be, or may have been, available online, or
+        from other people or sources. It is explicitly forbidden to use any such sources, or to consult people who have
+        solved these problems before. It is explicitly forbidden to search for these problems or their solutions on the
+        internet. You must solve the homework assignments completely on your own. We will be actively monitoring your
+        compliance. Collaboration with other students who are currently taking the class is allowed, but only under the
+        conditions stated above.</p>
+
+      <dt id="policy-regarding-found-code">Policy Regarding “Found Code”:</dt>
+
+      <p>You are encouraged to read books and other instructional materials, both online and offline, to help you
+        understand the concepts and algorithms taught in class. These materials may contain example code or pseudo code,
+        which may help you better understand an algorithm or an implementation detail. However, when you implement your
+        own solution to an assignment, you must put all materials aside, and write your code completely on your own,
+        starting “from scratch”. Specifically, you may not use any code you found or came across. If you find or come
+        across code that implements any part of your assignment, you must disclose this fact in your collaboration
+        statement.</p>
+
+      <dt id="duty-to-protect-ones-work">Duty to Protect One’s Work</dt>
+
+      <p>Students are responsible for pro-actively protecting their work from copying and misuse by other students. If a
+        student’s work is copied by another student, the original author is also considered to be at fault and in gross
+        violation of the course policies. It does not matter whether the author allowed the work to be copied or was
+        merely negligent in preventing it from being copied. When overlapping work is submitted by different students,
+        both students will be punished.</p>
+
+      <p>To protect future students, do not post your solutions publicly, neither during the course nor afterwards.</p>
+
+      <dt id="penalties-for-violations-of-course-policies">Penalties for Violations of Course Policies</dt>
+
+      <p>All violations (even first one) of course policies will always be
+        reported to the university authorities (your Department Head,
+        Associate Dean, Dean of Student Affairs, etc.) as an official Academic
+        Integrity Violation and will carry severe penalties.</p>
+
+      <ol>
+        <li>
+          The penalty for the first violation is a one-and-a-half letter
+          grade reduction. For example, if your final letter grade for the
+          course was to be an A-, it would become a C+.
+        </li>
+        <li>
+          The penalty for the second violation is failure in the course, and
+          can even lead to dismissal from the university.
+        </li>
+      </ol>
+
+      <br>
+
+      <h3 id="8-support">Support</h3>
+
+      <p>Take care of yourself. Do your best to maintain a healthy lifestyle this semester by eating well, exercising,
+        avoiding drugs and alcohol, getting enough sleep and taking some time to relax. This will help you achieve your
+        goals and cope with stress.</p>
+
+      <p>All of us benefit from support during times of struggle. You are not alone. There are many helpful resources
+        available on campus and an important part of the college experience is learning how to ask for help. Asking for
+        support sooner rather than later is often helpful.</p>
+
+      <p>If you or anyone you know experiences any academic stress, difficult life events, or feelings like anxiety or
+        depression, we strongly encourage you to seek support. Counseling and Psychological Services (CaPS) is here to
+        help: call 412-268-2922 and visit their website at <a
+          href="http://www.cmu.edu/counseling/">http://www.cmu.edu/counseling/</a>. Consider reaching out to a friend,
+        faculty or family member you trust for help getting connected to the support that can help.</p>
+
+      <p>If you or someone you know is feeling suicidal or in danger of self-harm, call someone immediately, day or
+        night:</p>
+
+      <ul>
+        <li>CaPS: 412-268-2922</li>
+        <li>Re:solve Crisis Network: 888-796-8226</li>
+        <li>If the situation is life threatening, call the police:
+          <ul>
+            <li>On campus: CMU Police: 412-268-2323</li>
+            <li>Off campus: 911</li>
+          </ul>
+        </li>
+      </ul>
+
+      <p>If you have questions about this or your coursework, please let the instructors know.</p>
+
+      <hr />
+
+      <h3> Contact Information </h3>
+      <p> <b>Instructor email:</b> rsalakhu [at] andrew [dot] cmu [dot] edu <br>
+        <b>Edudaction Associate email:</b> bedmunds [at] andrew [dot] cmu [dot] edu
+      </p>
+
+    </div>
+  </section>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+    integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+    integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+    crossorigin="anonymous"></script>
+  <script> var shiftWindow = function () { scrollBy(0, -35) };
+    if (location.hash) shiftWindow();
+    window.addEventListener("hashchange", shiftWindow); </script>
+</body>
+
+</html>
